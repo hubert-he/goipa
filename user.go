@@ -70,6 +70,15 @@ func (u *UserRecord) Locked() bool {
 	return u.NSAccountLock
 }
 
+func (c *Client) UserList(filter string) error {
+	res, err := c.rpc("user_find", nil, nil)
+	if err != nil {
+		return err
+	}
+	fmt.Printf("%+v", res)
+	return nil
+}
+
 // Fetch user details by call the FreeIPA user-show method
 func (c *Client) UserShow(uid string) (*UserRecord, error) {
 

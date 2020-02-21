@@ -1,4 +1,4 @@
-module github.com/ubccr/goipa
+module github.com/hubert-he/goipa
 
 require (
 	github.com/go-ini/ini v1.37.0
@@ -10,3 +10,5 @@ require (
 	gopkg.in/jcmturner/gokrb5.v6 v6.0.0
 	gopkg.in/jcmturner/rpc.v1 v1.1.0 // indirect
 )
+
+go 1.13
