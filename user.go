@@ -71,7 +71,7 @@ func (u *UserRecord) Locked() bool {
 }
 
 func (c *Client) UserList(filter string) error {
-	res, err := c.rpc("user_find", nil, nil)
+	res, err := c.rpc("user_find", []string{}, nil)
 	if err != nil {
 		return err
 	}
