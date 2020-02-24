@@ -18,7 +18,7 @@ func newTestClientUserPassword() *Client {
 
 	c := NewClient(host, realm)
 
-	err := c.Login(username, password)
+	err := c.RemoteLogin(username, password)
 	if err != nil {
 		panic(err)
 	}

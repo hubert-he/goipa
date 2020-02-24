@@ -70,13 +70,15 @@ func (u *UserRecord) Locked() bool {
 	return u.NSAccountLock
 }
 
-func (c *Client) UserList(filter string) error {
+func (c *Client) UserList(filter string) ([]UserRecord, error) {
+	var userRecList []UserRecord
 	res, err := c.rpc("user_find", []string{}, nil)
 	if err != nil {
-		return err
+		return nil, err
 	}
-	fmt.Printf("res==>%s\n type=%T", res.Result.Data, res.Result.Data)
-	return nil
+	//fmt.Printf("res==>%s\n type=%T", res.Result.Data, res.Result.Data)
+	err = json.Unmarshal(res.Result.Data, userRecList)
+	return userRecList, nil
 }
 
 // Fetch user details by call the FreeIPA user-show method
