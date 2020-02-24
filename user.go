@@ -75,7 +75,7 @@ func (c *Client) UserList(filter string) error {
 	if err != nil {
 		return err
 	}
-	fmt.Printf("res==>%+v\n", res.Result)
+	fmt.Printf("res==>%s\n type=%T", res.Result.Data, res.Result.Data)
 	return nil
 }
 
