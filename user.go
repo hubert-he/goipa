@@ -77,7 +77,7 @@ func (c *Client) UserList(filter string) ([]UserRecord, error) {
 		return nil, err
 	}
 	//fmt.Printf("res==>%s\n type=%T", res.Result.Data, res.Result.Data)
-	err = json.Unmarshal(res.Result.Data, userRecList)
+	err = json.Unmarshal(res.Result.Data, &userRecList)
 	return userRecList, nil
 }
 
